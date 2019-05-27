@@ -1,10 +1,10 @@
 ﻿using Android.App;
-using Android.OS;
-using Android.Support.V7.App;
-using Android.Runtime;
-using Android.Widget;
 using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
+using Android.Widget;
 using System.Collections.Generic;
 
 namespace Phoneword
@@ -60,14 +60,17 @@ namespace Phoneword
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            Intent intent;
             switch (item.ItemId)
             {
                 case Resource.Id.about_item:
+                    intent = new Intent(this, typeof(AboutActivity));
+                    StartActivity(intent);
                     return true;
                 case Resource.Id.history_item:
                     Bundle bundle = new Bundle();
                     bundle.PutStringArray(BUNDLE_HISTORY_KEY, history.ToArray());
-                    var intent = new Intent(this, typeof(HistoryActivity));
+                    intent = new Intent(this, typeof(HistoryActivity));
                     intent.PutExtras(bundle);
                     StartActivityForResult(intent, HISTORY_REQ_CODE);
                     return true;

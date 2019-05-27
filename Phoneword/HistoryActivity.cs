@@ -1,25 +1,25 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System;
 
 namespace Phoneword
 {
     [Activity(Label = "@string/translation_history", Theme = "@style/AppTheme", NoHistory = false)]
-    class HistoryActivity: ListActivity
+    class HistoryActivity : ListActivity
     {
 
-        string []items;
+        string[] items;
 
         public const string PHONE_WORD_KEY = "phone_word";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-           
+
             items = Intent.GetStringArrayExtra(MainActivity.BUNDLE_HISTORY_KEY);
             this.ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
         }

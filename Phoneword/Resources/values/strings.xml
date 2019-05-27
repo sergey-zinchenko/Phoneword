@@ -6,4 +6,5 @@
     <string name="history_item">Show History</string>
     <string name="enter_phone_word">Enter a phone word:</string>
     <string name="translate">Translate</string>
+    <string name="help_ok">Ok</string>
 </resources>
