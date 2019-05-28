@@ -1,4 +1,5 @@
-﻿using MvvmCross.ViewModels;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 using Phoneword.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Phoneword.Core.ViewModels
 {
-    class MainViewModel : MvxViewModel
+    public class MainViewModel : MvxViewModel
     {
         readonly ITranslationService _translationService;
 
@@ -21,7 +22,14 @@ namespace Phoneword.Core.ViewModels
             await base.Initialize();
 
             _phoneNumberText = "adgjmptw";
-            Translate();
+        }
+
+        public IMvxCommand TranslateCommand
+        {
+            get
+            {
+                return new MvxCommand(() => Translate(), () => true);
+            }
         }
 
         private string _phoneNumberText;

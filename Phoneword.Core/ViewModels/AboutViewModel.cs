@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Phoneword.Core.ViewModels
 {
-    class AboutViewModel
+    public class AboutViewModel
     {
     }
 }
