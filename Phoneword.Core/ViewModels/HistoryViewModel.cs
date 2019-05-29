@@ -1,4 +1,5 @@
-﻿using MvvmCross.ViewModels;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,13 @@ namespace Phoneword.Core.ViewModels
     public class HistoryViewModel : MvxViewModel<List<string>, string>
     {
         List<string> history;
+        public IMvxCommand ChooseCommand;
+
+        public HistoryViewModel()
+        {
+            ChooseCommand = new MvxCommand(Choose);
+        }
+
         public override void Prepare(List<string> parameter)
         {
             history = parameter;
@@ -18,5 +26,11 @@ namespace Phoneword.Core.ViewModels
         {
             await base.Initialize();
         }
+
+        public void Choose()
+        {
+
+        }
+        
     }
 }
