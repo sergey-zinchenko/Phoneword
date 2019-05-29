@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using Phoneword.Core.Services;
 using System;
@@ -11,10 +12,20 @@ namespace Phoneword.Core.ViewModels
     public class MainViewModel : MvxViewModel
     {
         readonly ITranslationService _translationService;
+        private readonly IMvxNavigationService _navigationService;
 
-        public MainViewModel(ITranslationService translationService)
+        public IMvxCommand ShowHistoryCommand { get; private set; }
+        public IMvxCommand ShowAboutCommand { get; private set; }
+        public IMvxCommand TranslateCommand { get; private set; }
+
+        public MainViewModel(ITranslationService translationService, IMvxNavigationService navigationService)
         {
             _translationService = translationService;
+            _navigationService = navigationService;
+
+            TranslateCommand = new MvxCommand(() => Translate(), () => true);
+            ShowHistoryCommand = new MvxAsyncCommand(async () => await _navigationService.Navigate<HistoryViewModel>());
+            ShowAboutCommand = new MvxAsyncCommand(async () => await _navigationService.Navigate<AboutViewModel>());
         }
 
         public override async Task Initialize()
@@ -22,14 +33,6 @@ namespace Phoneword.Core.ViewModels
             await base.Initialize();
 
             _phoneNumberText = "adgjmptw";
-        }
-
-        public IMvxCommand TranslateCommand
-        {
-            get
-            {
-                return new MvxCommand(() => Translate(), () => true);
-            }
         }
 
         private string _phoneNumberText;

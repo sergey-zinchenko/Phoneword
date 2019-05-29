@@ -22,5 +22,31 @@ namespace Phoneword.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_main);
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.main_menu, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.about_item:
+                    ViewModel.ShowAboutCommand.Execute();
+                    return true;
+                case Resource.Id.history_item:
+                    //Bundle bundle = new Bundle();
+                    //bundle.PutStringArray(BUNDLE_HISTORY_KEY, history.ToArray());
+                    //intent = new Intent(this, typeof(HistoryActivity));
+                    //intent.PutExtras(bundle);
+                    //StartActivityForResult(intent, HISTORY_REQ_CODE);
+                    ViewModel.ShowHistoryCommand.Execute();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
     }
 }
