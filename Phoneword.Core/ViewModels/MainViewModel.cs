@@ -11,14 +11,15 @@ namespace Phoneword.Core.ViewModels
 {
     public class MainViewModel : MvxViewModel
     {
-        readonly ITranslationService _translationService;
+        private readonly ITranslationService _translationService;
         private readonly IMvxNavigationService _navigationService;
+        private readonly List<string> _history = new List<string>();
 
         public IMvxCommand ShowHistoryCommand { get; private set; }
         public IMvxCommand ShowAboutCommand { get; private set; }
         public IMvxCommand TranslateCommand { get; private set; }
 
-        List<string> history = new List<string>();
+        
 
         public MainViewModel(ITranslationService translationService, IMvxNavigationService navigationService)
         {
@@ -61,12 +62,14 @@ namespace Phoneword.Core.ViewModels
 
         private async Task ShowHistoryTask()
         {
-            PhoneNumberText = await _navigationService.Navigate<HistoryViewModel, List<string>, string>(history);
+            var historyWord = await _navigationService.Navigate<HistoryViewModel, List<string>, string>(_history);
+            if (!string.IsNullOrWhiteSpace(historyWord))
+                Translate();
         }
 
         private void Translate()
         {
-            history.Add(_phoneNumberText);
+            _history.Add(_phoneNumberText);
             TranslatedPhoneword = _translationService.ToNumber(_phoneNumberText);
         }
     }
