@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal ="true"
         android:layout_below="@id/textView1"
-        android:id="@+id/OkButton"
+        local:MvxBind="Click OkClickCommand"
         android:layout_marginTop="10dp"/>
 </RelativeLayout>
