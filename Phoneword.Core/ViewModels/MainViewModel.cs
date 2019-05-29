@@ -18,13 +18,15 @@ namespace Phoneword.Core.ViewModels
         public IMvxCommand ShowAboutCommand { get; private set; }
         public IMvxCommand TranslateCommand { get; private set; }
 
+        List<string> history = new List<string>();
+
         public MainViewModel(ITranslationService translationService, IMvxNavigationService navigationService)
         {
             _translationService = translationService;
             _navigationService = navigationService;
 
             TranslateCommand = new MvxCommand(() => Translate(), () => true);
-            ShowHistoryCommand = new MvxAsyncCommand(async () => await _navigationService.Navigate<HistoryViewModel>());
+            ShowHistoryCommand = new MvxAsyncCommand(ShowHistoryTask);
             ShowAboutCommand = new MvxAsyncCommand(async () => await _navigationService.Navigate<AboutViewModel>());
         }
 
@@ -57,8 +59,14 @@ namespace Phoneword.Core.ViewModels
             }
         }
 
+        private async Task ShowHistoryTask()
+        {
+            PhoneNumberText = await _navigationService.Navigate<HistoryViewModel, List<string>, string>(history);
+        }
+
         private void Translate()
         {
+            history.Add(_phoneNumberText);
             TranslatedPhoneword = _translationService.ToNumber(_phoneNumberText);
         }
     }
