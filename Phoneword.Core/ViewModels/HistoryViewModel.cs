@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,29 @@ namespace Phoneword.Core.ViewModels
 {
     public class HistoryViewModel : MvxViewModel<List<string>, string>
     {
-        List<string> history;
-        public IMvxCommand ChooseCommand;
+        private readonly IMvxNavigationService _navigationService;
 
-        public HistoryViewModel()
+        private List<string> _history;
+        public IMvxCommand ChooseCommand { get; private set; }
+        public List<string> History
         {
-            ChooseCommand = new MvxCommand(Choose);
+            get => _history;
+            private set
+            {
+                _history = value;
+                RaisePropertyChanged(() => History);
+            }
+        }
+
+        public HistoryViewModel(IMvxNavigationService navigationService)
+        {
+            _navigationService = navigationService;
+            ChooseCommand = new MvxCommand<string>(Choose);
         }
 
         public override void Prepare(List<string> parameter)
         {
-            history = parameter;
+            _history = parameter;
         }
 
         public override async Task Initialize()
@@ -27,9 +40,9 @@ namespace Phoneword.Core.ViewModels
             await base.Initialize();
         }
 
-        public void Choose()
+        public void Choose(string word)
         {
-
+            _navigationService.Close(this, word);
         }
         
     }
