@@ -9,13 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Views;
 using Phoneword.Core.ViewModels;
 
 namespace Phoneword.Droid.Views
 {
-    [Activity(Label = "Tip Calculator", MainLauncher = true)]
-    public class MainView : MvxActivity<MainViewModel>
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, NoHistory = false)]
+    public class MainView : MvxAppCompatActivity<MainViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -37,11 +38,6 @@ namespace Phoneword.Droid.Views
                     ViewModel.ShowAboutCommand.Execute();
                     return true;
                 case Resource.Id.history_item:
-                    //Bundle bundle = new Bundle();
-                    //bundle.PutStringArray(BUNDLE_HISTORY_KEY, history.ToArray());
-                    //intent = new Intent(this, typeof(HistoryActivity));
-                    //intent.PutExtras(bundle);
-                    //StartActivityForResult(intent, HISTORY_REQ_CODE);
                     ViewModel.ShowHistoryCommand.Execute();
                     return true;
                 default:
