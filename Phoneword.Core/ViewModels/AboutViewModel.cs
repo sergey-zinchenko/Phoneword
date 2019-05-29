@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MvvmCross.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Phoneword.Core.ViewModels
 {
-    public class AboutViewModel
+    public class AboutViewModel : MvxViewModel
     {
     }
 }
