@@ -1,14 +1,22 @@
-﻿using System;
-
+﻿using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platforms.Ios.Presenters.Attributes;
+using MvvmCross.Platforms.Ios.Views;
+using Phoneword.Core.ViewModels;
+using System;
 using UIKit;
 
 namespace Phoneword.iOS.Views
 {
-    public partial class MainView : UIViewController
+    [MvxFromStoryboard(StoryboardName = "Main")]
+    [MvxRootPresentation(WrapInNavigationController = true)]
+    public partial class MainView : MvxViewController<MainViewModel>
     {
-        public MainView() : base("MainView", null)
+
+        public MainView(IntPtr handle)
+           : base(handle)
         {
         }
+
 
         public override void ViewDidLoad()
         {
@@ -21,6 +29,7 @@ namespace Phoneword.iOS.Views
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+   
     }
 }
 
