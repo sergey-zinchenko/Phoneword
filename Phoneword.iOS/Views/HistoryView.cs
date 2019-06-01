@@ -22,11 +22,11 @@ namespace Phoneword.iOS.Views
         {
             base.ViewDidLoad();
             var source = new MyTableViewSource(TableView);
+            source.SelectedItemChanged += Source_SelectedItemChanged;
+            TableView.Source = source;
             var set = this.CreateBindingSet<HistoryView, HistoryViewModel>();
             set.Bind(source).To(vm => vm.History);
             set.Apply();
-            source.SelectedItemChanged += Source_SelectedItemChanged;
-            TableView.Source = source;
             TableView.ReloadData();
         }
 

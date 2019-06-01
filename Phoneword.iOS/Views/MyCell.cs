@@ -10,7 +10,7 @@ namespace Phoneword.iOS.Views
     {
         public static readonly NSString Key = new NSString("MyCell");
 
-        public string Title { get { return Label.Text; } set { Label.Text = value; } }
+        public string Title { get { return TextLabel.Text; } set { TextLabel.Text = value; } }
 
         protected MyCell(IntPtr handle) : base(handle)
         {
@@ -36,7 +36,7 @@ namespace Phoneword.iOS.Views
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
             var cell = (MyCell)tableView.DequeueReusableCell(cellIdentifier);
-            var set = cell.CreateBindingSet<MyCell, string>();
+            var set = cell.CreateBindingSet<MyCell, string> ();
             set.Bind().For(c => c.Title).To(vm => vm);
             set.Apply();
             return cell;
