@@ -15,19 +15,49 @@ namespace Phoneword.iOS.Views
         public MainView(IntPtr handle)
            : base(handle)
         {
+            Title = "Phoneword";
         }
 
+        partial void TranslateUpInside(UIKit.UIButton sender)
+        {
+            ViewModel.TranslateCommand.Execute();
+        }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            var rightButton = new UIBarButtonItem("Menu", UIBarButtonItemStyle.Bordered, null);
+            rightButton.Clicked += MenuButtonClicked;
+            NavigationItem.SetRightBarButtonItem(rightButton, false);
+            var set = this.CreateBindingSet<MainView, MainViewModel>();
+            set.Bind(InputField).To(vm => vm.PhoneNumberText);
+            set.Bind(OutputLabel).To(vm => vm.TranslatedPhoneword);
+            set.Apply();
+        }
+
+        private void MenuButtonClicked(object sender, EventArgs e)
+        {
+            var actionSheet = new UIActionSheet("Menu");
+            actionSheet.AddButton("History");
+            actionSheet.AddButton("About");
+            actionSheet.AddButton("Cancel");
+            actionSheet.CancelButtonIndex = 2;
+            actionSheet.Clicked += delegate (object a, UIButtonEventArgs b) {
+                switch (b.ButtonIndex) {
+                    case 0:
+                        ViewModel.ShowHistoryCommand.Execute();
+                        break;
+                    case 1:
+                        ViewModel.ShowAboutCommand.Execute();
+                        break;
+                }
+            };
+            actionSheet.ShowInView(View);
         }
 
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
    
     }

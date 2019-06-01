@@ -7,15 +7,35 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace Phoneword.iOS.Views
 {
     [Register ("MainView")]
     partial class MainView
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField InputField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel OutputLabel { get; set; }
+
+        [Action ("TranslateUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void TranslateUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
+            if (InputField != null) {
+                InputField.Dispose ();
+                InputField = null;
+            }
+
+            if (OutputLabel != null) {
+                OutputLabel.Dispose ();
+                OutputLabel = null;
+            }
         }
     }
 }
