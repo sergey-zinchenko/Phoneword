@@ -13,7 +13,7 @@ namespace Phoneword.iOS.Views
     {
         public HistoryView(IntPtr handle) : base(handle)
         {
-            Title = "Hidtory";
+            Title = "History";
         }
 
         #region View lifecycle
