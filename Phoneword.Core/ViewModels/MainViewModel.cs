@@ -64,8 +64,10 @@ namespace Phoneword.Core.ViewModels
         {
             var historyWord = await _navigationService.Navigate<HistoryViewModel, List<string>, string>(_history);
             if (!string.IsNullOrWhiteSpace(historyWord))
+            {
                 PhoneNumberText = historyWord;
                 Translate();
+            }
         }
 
         private void Translate()

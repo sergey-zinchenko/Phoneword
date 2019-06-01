@@ -64,6 +64,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\MyCell.cs" />
+    <Compile Include="Views\MyCell.designer.cs">
+      <DependentUpon>MyCell.cs</DependentUpon>
+    </Compile>
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
@@ -71,6 +75,10 @@
     <Compile Include="Views\AboutView.cs" />
     <Compile Include="Views\AboutView.designer.cs">
       <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryView.cs" />
+    <Compile Include="Views\HistoryView.designer.cs">
+      <DependentUpon>HistoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\MainView.designer.cs">
