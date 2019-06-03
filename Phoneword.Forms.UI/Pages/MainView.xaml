@@ -11,10 +11,14 @@
             <Label Text="Phoneword" />
             <Entry x:Name="PhoneNumberText"
                    mvx:Bi.nd="Text PhoneNumberText, Mode=TwoWay"/>
-            <Button  x:Name="TranslateButton"
-                     mvx:Bi.nd="Text Translate; Click TranslateCommand"/>
+            <Button  x:Name="TranslateButton" Command="{Binding TranslateCommand}"
+                     Text="Translate"/>
             <Label x:Name="TranslatedPhoneword"
-                   mvx:Bi.nd="TranslatedPhoneword, Mode=TwoWay"/>
+                   mvx:Bi.nd="Text TranslatedPhoneword, Mode=TwoWay"/>
         </StackLayout>
     </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="HistoryMenuItem"  Text="History" Priority="0" Command="{Binding ShowHistoryCommand}"/>
+        <ToolbarItem Name="AboutMenuItem"  Text="About" Priority="1" Command="{Binding ShowAboutCommand}"/>
+    </ContentPage.ToolbarItems>
 </views:MvxContentPage>

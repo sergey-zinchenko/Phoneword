@@ -12,7 +12,7 @@ using Android.Content.PM;
 namespace Phoneword.Forms.Droid
 {
     [Activity(Label = "Forms.Droid", Theme = "@style/AppTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, LaunchMode = LaunchMode.SingleTask)]
-    public class MainActivity : MvxFormsAppCompatActivity<MvxFormsAndroidSetup<App, FormsApp>, App, FormsApp>
+    public class LauncherActivity : MvxFormsAppCompatActivity<MvxFormsAndroidSetup<App, FormsApp>, App, FormsApp>
     {
         protected override void OnCreate(Bundle bundle)
         {
