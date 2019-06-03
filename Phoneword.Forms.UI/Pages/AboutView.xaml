@@ -8,11 +8,38 @@
     x:Class="Phoneword.Forms.UI.Pages.AboutView"
     Title="About">
     <ContentPage.Content>
-        <StackLayout>
+        <RelativeLayout>
             <Label Text="Phoneword"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Ok" Command="{Binding OkClickCommand}"/>
-        </StackLayout>
+                x:Name="Title"
+                HeightRequest="20"
+                WidthRequest="80"
+                RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.5,
+                Constant=-10}" 
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.5,
+                Constant=-40}"/>
+            <Button Text="Ok"
+                x:Name="Button"
+                HeightRequest="50"
+                WidthRequest="120"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToView,
+                ElementName=Title,
+                Property=X,
+                Factor=1,
+                Constant=-20}"
+                RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToView,
+                ElementName=Title,
+                Property=Y,
+                Factor=1,
+                Constant=50}"
+                Command="{Binding OkClickCommand}"/>
+        </RelativeLayout>
     </ContentPage.Content>
 </views:MvxContentPage>
