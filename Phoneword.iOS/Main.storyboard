@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2061">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View-->
+        <scene sceneID="2060">
+            <objects>
+                <viewController storyboardIdentifier="MainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2061" customClass="MainView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2058"/>
+                        <viewControllerLayoutGuide type="bottom" id="2059"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2062">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a phone word:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2072">
+                                <rect key="frame" x="20" y="38" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2074">
+                                <rect key="frame" x="20" y="124.5" width="374" height="30"/>
+                                <state key="normal" title="Translate"/>
+                                <connections>
+                                    <action selector="TranslateUpInside:" destination="2061" eventType="touchUpInside" id="3341"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="output" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2076">
+                                <rect key="frame" x="20" y="172.5" width="374" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="6689" firstAttribute="height" constant="20"/>
+                                </constraints>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2073">
+                                <rect key="frame" x="20" y="76.5" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint id="6207" firstItem="2072" firstAttribute="centerX" secondItem="2062" secondAttribute="centerX"/>
+                            <constraint id="6208" firstItem="2072" firstAttribute="top" secondItem="2058" secondAttribute="bottom" constant="18"/>
+                            <constraint id="6209" firstItem="2073" firstAttribute="top" secondItem="2072" secondAttribute="bottom" constant="18"/>
+                            <constraint id="6210" firstItem="2072" firstAttribute="trailing" secondItem="2062" secondAttribute="trailingMargin"/>
+                            <constraint id="6211" firstItem="2072" firstAttribute="leading" secondItem="2062" secondAttribute="leadingMargin"/>
+                            <constraint id="6212" firstItem="2073" firstAttribute="trailing" secondItem="2062" secondAttribute="trailingMargin"/>
+                            <constraint id="6213" firstItem="2073" firstAttribute="leading" secondItem="2062" secondAttribute="leadingMargin"/>
+                            <constraint id="6214" firstItem="2074" firstAttribute="top" secondItem="2073" secondAttribute="bottom" constant="18"/>
+                            <constraint id="6215" firstItem="2074" firstAttribute="trailing" secondItem="2062" secondAttribute="trailingMargin"/>
+                            <constraint id="6216" firstItem="2074" firstAttribute="leading" secondItem="2062" secondAttribute="leadingMargin"/>
+                            <constraint id="6217" firstItem="2076" firstAttribute="top" secondItem="2074" secondAttribute="bottom" constant="18"/>
+                            <constraint id="6218" firstItem="2076" firstAttribute="leading" secondItem="2062" secondAttribute="leadingMargin"/>
+                            <constraint id="6219" firstItem="2076" firstAttribute="trailing" secondItem="2062" secondAttribute="trailingMargin"/>
+                            <constraint id="6220" firstItem="2076" firstAttribute="trailing" secondItem="2062" secondAttribute="trailingMargin"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="InputField" destination="2073" id="name-outlet-2073"/>
+                        <outlet property="OutputLabel" destination="2076" id="name-outlet-2076"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2063" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="-569.0217"/>
+        </scene>
+        <!--About View-->
+        <scene sceneID="2067">
+            <objects>
+                <viewController storyboardIdentifier="AboutView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2068" customClass="AboutView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2065"/>
+                        <viewControllerLayoutGuide type="bottom" id="2066"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2069">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phoneword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3961">
+                                <rect key="frame" x="162" y="358" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="6963" firstAttribute="height" constant="21"/>
+                                    <constraint id="6964" firstAttribute="width" constant="91"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3962">
+                                <rect key="frame" x="184" y="396.5" width="46" height="30"/>
+                                <state key="normal" title="Ok"/>
+                                <connections>
+                                    <action selector="OkUpInside:" destination="2068" eventType="touchUpInside" id="3966"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="6967" firstAttribute="height" constant="30"/>
+                                    <constraint id="6968" firstAttribute="width" constant="46"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint id="6961" firstItem="3961" firstAttribute="centerX" secondItem="2069" secondAttribute="centerX"/>
+                            <constraint id="6962" firstItem="3961" firstAttribute="centerY" secondItem="2069" secondAttribute="centerY"/>
+                            <constraint id="6965" firstItem="3962" firstAttribute="centerX" secondItem="2069" secondAttribute="centerX"/>
+                            <constraint id="6966" firstItem="3962" firstAttribute="top" secondItem="3961" secondAttribute="bottom" constant="18"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2070" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108.6957" y="-569.0217"/>
+        </scene>
+        <!--History View-->
+        <scene sceneID="4776">
+            <objects>
+                <viewController storyboardIdentifier="HistoryView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4777" customClass="HistoryView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4774"/>
+                        <viewControllerLayoutGuide type="bottom" id="4775"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4778">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4985">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="4986" customClass="MyCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4986" id="4987">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint id="7442" firstItem="4985" firstAttribute="trailing" secondItem="4778" secondAttribute="trailingMargin" constant="20"/>
+                            <constraint id="7443" firstAttribute="leadingMargin" secondItem="4985" secondAttribute="leading" constant="20"/>
+                            <constraint id="7444" firstItem="4985" firstAttribute="top" secondItem="4778" secondAttribute="top"/>
+                            <constraint id="7445" firstItem="4985" firstAttribute="bottom" secondItem="4775" secondAttribute="top"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="4985" id="name-outlet-4985"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4779" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847.8261" y="-569.0217"/>
+        </scene>
+    </scenes>
+</document>

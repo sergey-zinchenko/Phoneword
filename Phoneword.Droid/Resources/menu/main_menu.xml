@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/history_item"
+        android:showAsAction="always"
+        android:title="@string/history_item">
+    </item>
+    <item
+        android:id="@+id/about_item"
+        android:icon="@android:drawable/ic_menu_call"
+        android:showAsAction="always"
+        android:title="@string/about_item">
+    </item>
+</menu>
