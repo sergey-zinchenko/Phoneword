@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <RelativeLayout>
             <Label Text="Phoneword"
-                x:Name="Title"
+                x:Name="TitleLabel"
                 HeightRequest="20"
                 WidthRequest="80"
                 RelativeLayout.YConstraint="{ConstraintExpression 
@@ -29,13 +29,13 @@
                 WidthRequest="120"
                 RelativeLayout.XConstraint="{ConstraintExpression 
                 Type=RelativeToView,
-                ElementName=Title,
+                ElementName=TitleLabel,
                 Property=X,
                 Factor=1,
                 Constant=-20}"
                 RelativeLayout.YConstraint="{ConstraintExpression 
                 Type=RelativeToView,
-                ElementName=Title,
+                ElementName=TitleLabel,
                 Property=Y,
                 Factor=1,
                 Constant=50}"
